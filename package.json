@@ -1,0 +1,13 @@
+{
+  "name": "NodeRedis",
+  "version": "0.0.0",
+  "main": "app.js",
+  "scripts": {
+    "stop": "echo not implemented",
+    "start": "node ./app.js"
+  },
+  "dependencies": {
+    "express": "4.6.1",
+    "redis":  "2.6.1"
+  }
+}
