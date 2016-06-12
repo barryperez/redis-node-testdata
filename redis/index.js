@@ -34,23 +34,23 @@ function checkReady(res)
 	}
 }
 
-// lpush implementation (add a value to the head of a queue)
+// lpush implementation (add a value to the head of a list)
 function lpush(req,res)
 {
 	checkReady(res);
 	var key = req.params.key;
 	var value = req.params.value;
-    client.lpush(key,value);
+	client.lpush(key,value);
 	res.json({"rc": 0});
 };
 
-// rpush implementation (add a value to the tail of a queue)
+// rpush implementation (add a value to the tail of a list)
 function rpush(req,res)
 {
 	checkReady(res);
 	var key = req.params.key;
 	var value = req.params.value;
-    client.rpush(key,value);
+	client.rpush(key,value);
 	res.json({"rc": 0});
 };
 
@@ -59,13 +59,12 @@ function rpop(req,res)
 {
 	checkReady(res);
 	var key = req.params.key;
-    client.rpop(key, function (err, reply) {
-
+	client.rpop(key, function (err, reply) {
 		if (reply == null) {
 			res.status(204).end();
 		}
 		else {
-		    res.status(200).json({value: reply});
+			res.status(200).json({value: reply});
 		}	
 	});
 };
@@ -75,12 +74,12 @@ function lpop(req,res)
 {
 	checkReady(res);
 	var key = req.params.key;
-    client.lpop(key, function (err, reply) {
+	client.lpop(key, function (err, reply) {
 		if (reply == null) {
 			res.status(204).end();
 		}
 		else {
-		    res.status(200).json({value: reply});
+			res.status(200).json({value: reply});
 		}	
 	});
 };
@@ -98,12 +97,12 @@ function get(req,res)
 {
 	checkReady(res);
 	var key = req.params.key;
-    client.get(key, function (err, reply) {
+	client.get(key, function (err, reply) {
 		if (reply == null) {
 			res.status(204).end();
 		}
 		else {
-		    res.status(200).json({value: reply});
+			res.status(200).json({value: reply});
 		}	
 	});
 }
